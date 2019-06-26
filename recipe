@@ -1,0 +1,66 @@
+#!/bin/bash
+URL="$( echo -e $1 | sed 's/\?.*//' )"
+ 
+#echo $1 
+
+#echo  $URL 
+FILE="$( echo -e  $URL | tr  '/' ' ' |  awk '{print $NF}' )"
+#echo $FILE 
+TITLE="$( echo $FILE | tr '-' ' ' )"
+#echo $TITLE
+LINE="'$TITLE': join(abspath(dirname(__file__)), 'recipes', '$FILE'),"
+#echo $LINE
+NO_WHITESPACE="$(echo -e "${LINE}" | tr -d '[:space:]')"
+
+DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'recipes', '$FILE')," $HOME/mycroft-core/skills/recipe-library-skill/__init__.py) "
+NO_WHITESPACE1="$(echo -e "${DATA}" | tr -d '[:space:]')"
+#echo $DATA
+#echo $NO_WHITESPACE
+if [[ $NO_WHITESPACE1 == $NO_WHITESPACE ]]
+   then
+         echo "exist already "
+     else
+sed -i "/^        self.play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
+echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/title.entity
+
+
+echo  Saving to $HOME/mycroft-core/skills/recipe-library-skill/recipes/$FILE 
+
+lynx -dump $URL  | 
+sed -n '/^Ingredients/,/^Get the magazine/p;/^Get the magazine/q' | 
+sed '/^Ingredients/,/^   Note: Recipe directions are for original size./{//!d;};' | 
+
+sed '/^   You might also like/,/^Directions/{//!d;};' |  
+sed  's/*//g' |  
+sed  's/\[//g' |  
+sed  's/\]//g' |  
+sed  's/   Note: Recipe directions are for original size.//g' | 
+sed '/        Add all ingredients to list/,/   You might also like/d' |  
+sed  's/1\.//g' |  
+sed  's/Get the magazine//g' | 
+#sed  's/\Prep\>/Preperation Time/g' | 
+#sed  's/\Cook\>/Cooking Time/g' | 
+sed -e '/Prep/{N;N;N;N;N;d}' | 
+sed  's/\C\>/Celsius /g' | 
+sed  's/\F\>/Fahrenheit /g' | 
+sed  's/\ m\>/ minutes/g'| 
+sed  's/\ h\>/ hour/g' |  
+sed  's/(//g' |  
+sed  's/)//g' |  
+sed  's/2\.//g' |  
+sed  's/3\.//g' |  
+sed  's/4\.//g' |  
+sed  's/5\.//g' |  
+sed  's/6\.//g' |  
+sed  's/7\.//g' |  
+sed  's/8\.//g' |  
+sed  's/9\.//g' | 
+sed -e '/Directions/{n;N;d}' | 
+sed '/Directions/{n;:l N;/XXX/b; s/\n//; bl}' | 
+sed  's/      //g' | 
+sed 's/\.     /\n/g'  |
+sed '/^$/d' | sed  "1s/^/$TITLE\n\n /" > $HOME/mycroft-core/skills/recipe-library-skill/recipes/$FILE 
+
+#sed -i "1s/^/$TITLE\n\n /" $HOME/AllRecipes/$FILE
+
+fi
