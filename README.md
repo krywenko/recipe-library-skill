@@ -17,3 +17,5 @@ here is a recipe libary skill for mycroft-   it reads locally stored recipes scr
  
  you need to install lynx  for recipe scraper to work
  
+ cookie_recipe, breakfast_recipe, vegan_recipe ....  are batch downloader from the  the allrecipe website  it downloads the top picks of the day recipes to your libary..   it also allows  you  say keep your recipe libary vegan if you like or your a bread person
+ 
