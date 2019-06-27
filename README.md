@@ -14,3 +14,6 @@ here is a recipe libary skill for mycroft-   it reads locally stored recipes scr
  find  recipe sourcough pancakes - will read out the recipe
  
  read me random recipe 
+ 
+ you need to install lynx  for recipe scraper to work
+ 
