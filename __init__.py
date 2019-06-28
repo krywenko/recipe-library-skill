@@ -54,13 +54,13 @@ class RecipeLibary(MycroftSkill):
      
         }       
         self.snack_play_list = {
-            'bacon dijon egg salad sandwich': join(abspath(dirname(__file__)), 'recipes/snack', 'bacon-dijon-egg-salad-sandwich'),    
+           
         }        
         self.world_play_list = {
-            'german rouladen': join(abspath(dirname(__file__)), 'recipes/world', 'german-rouladen'),
+       
         }          
         self.beef_play_list = {
-            'standing roast beef brined': join(abspath(dirname(__file__)), 'recipes/beef', 'standing-roast-beef-brined'),
+        
         }       
         self.pork_play_list = {
      
@@ -70,28 +70,23 @@ class RecipeLibary(MycroftSkill):
         }        
         
         self.cookies_play_list = {
-            'peanut butter bars i': join(abspath(dirname(__file__)), 'recipes/cookies', 'peanut-butter-bars-i'),
+        
         }        
         self.cake_play_list = {
-            'tiramisu layer cake': join(abspath(dirname(__file__)), 'recipes/cake', 'tiramisu-layer-cake'),
-
+         
         }        
         self.breakfast_play_list = {
-            'classic waffles': join(abspath(dirname(__file__)), 'recipes/breakfast', 'classic-waffles'),
-
+           
         }        
         self.bread_play_list = {
-            'banana banana bread': join(abspath(dirname(__file__)), 'recipes/bread', 'banana-banana-bread'),
             
         }        
         
         self.chicken_play_list = {
-            'simple whole roasted chicken': join(abspath(dirname(__file__)), 'recipes/chicken', 'simple-whole-roasted-chicken'),
-
+           
         }
         self.shrimp_play_list = {
-            'szechwan shrimp': join(abspath(dirname(__file__)), 'recipes/shrimp', 'szechwan-shrimp'),
-
+            
         }
         self.play_list = {
             'chewy chocolate chip oatmeal cookies': join(abspath(dirname(__file__)), 'recipes', 'chewy-chocolate-chip-oatmeal-cookies'),
