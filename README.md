@@ -23,8 +23,8 @@ here is a recipe libary skill for mycroft-   it reads locally stored recipes scr
  ./recipe https://www.allrecipes.com/recipe/230812/standing-roast-beef-brined/
  but to get acces to those use:
  list my favorite recipes to list them
- my favorite recipe  standing roast beef
- or  famon favorite recipe
+ favorite recipe  standing roast beef
+ or  ramon favorite recipe
  
  you need to install lynx  for recipe scraper to work
  
