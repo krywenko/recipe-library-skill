@@ -12,11 +12,11 @@ FILE="$( echo -e  $URL | tr  '/' ' ' |  awk '{print $NF}' )"
 #echo $FILE 
 TITLE="$( echo $FILE | tr '-' ' ' )"
 #echo $TITLE
-LINE="'$TITLE': join(abspath(dirname(__file__)), 'recipes', '$FILE'),"
+LINE="'$TITLE': join(abspath(dirname(__file__)), 'recipes/bread', '$FILE'),"
 echo $LINE
 NO_WHITESPACE="$(echo -e "${LINE}" | tr -d '[:space:]')"
 
-DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'recipes', '$FILE')," $HOME/mycroft-core/skills/recipe-library-skill/__init__.py) "
+DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'recipes/bread', '$FILE')," $HOME/mycroft-core/skills/recipe-library-skill/__init__.py) "
 NO_WHITESPACE1="$(echo -e "${DATA}" | tr -d '[:space:]')"
 echo $DATA
 echo $NO_WHITESPACE
@@ -24,8 +24,8 @@ if [[ $NO_WHITESPACE1 == $NO_WHITESPACE ]]
    then
          echo "exist already "
      else
-sed -i "/^        self.play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
-echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/title.entity
+sed -i "/^        self.bread_play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
+echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/titlebread.entity
 
 
 echo  Saving to $HOME/AllRecipes/$FILE
@@ -63,7 +63,7 @@ sed -e '/Directions/{n;N;d}' |
 sed '/Directions/{n;:l N;/XXX/b; s/\n//; bl}' | 
 sed  's/      //g' | 
 sed 's/\.     /\n/g'  |
-sed '/^$/d' | sed  "1s/^/$TITLE\n\n /"  > $HOME/mycroft-core/skills/recipe-library-skill/recipes/$FILE 
+sed '/^$/d' | sed  "1s/^/$TITLE\n\n /"  > $HOME/mycroft-core/skills/recipe-library-skill/recipes/bread/$FILE 
 
 #sed -i "1s/^/$TITLE\n\n /" $HOME/AllRecipes/$FILE
 

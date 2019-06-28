@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input="$( lynx https://www.allrecipes.com/recipes/78/breakfast-and-brunch/ --dump | grep "https://www.allrecipes.com/recipe/" | cut -d"." -f2-)"
+input="$( lynx https://www.allrecipes.com/recipes/200/meat-and-poultry/beef/ --dump | grep "https://www.allrecipes.com/recipe/" | cut -d"." -f2-)"
 
 
 #input="/path/to/txt/file"
@@ -12,11 +12,11 @@ FILE="$( echo -e  $URL | tr  '/' ' ' |  awk '{print $NF}' )"
 #echo $FILE 
 TITLE="$( echo $FILE | tr '-' ' ' )"
 #echo $TITLE
-LINE="'$TITLE': join(abspath(dirname(__file__)), 'recipes/breakfast', '$FILE'),"
+LINE="'$TITLE': join(abspath(dirname(__file__)), 'recipes/beef', '$FILE'),"
 echo $LINE
 NO_WHITESPACE="$(echo -e "${LINE}" | tr -d '[:space:]')"
 
-DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'recipes/breakfast', '$FILE')," $HOME/mycroft-core/skills/recipe-library-skill/__init__.py) "
+DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'recipes/beef', '$FILE')," $HOME/mycroft-core/skills/recipe-library-skill/__init__.py) "
 NO_WHITESPACE1="$(echo -e "${DATA}" | tr -d '[:space:]')"
 echo $DATA
 echo $NO_WHITESPACE
@@ -24,8 +24,8 @@ if [[ $NO_WHITESPACE1 == $NO_WHITESPACE ]]
    then
          echo "exist already "
      else
-sed -i "/^        self.breakfast_play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
-echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/titlebreakfast.entity
+sed -i "/^        self.beef_play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
+echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/titlebeef.entity
 
 
 echo  Saving to $HOME/AllRecipes/$FILE
@@ -63,7 +63,7 @@ sed -e '/Directions/{n;N;d}' |
 sed '/Directions/{n;:l N;/XXX/b; s/\n//; bl}' | 
 sed  's/      //g' | 
 sed 's/\.     /\n/g'  |
-sed '/^$/d' | sed  "1s/^/$TITLE\n\n /"  > $HOME/mycroft-core/skills/recipe-library-skill/recipes/breakfast/$FILE 
+sed '/^$/d' | sed  "1s/^/$TITLE\n\n /"  > $HOME/mycroft-core/skills/recipe-library-skill/recipes/beef/$FILE 
 
 #sed -i "1s/^/$TITLE\n\n /" $HOME/AllRecipes/$FILE
 
