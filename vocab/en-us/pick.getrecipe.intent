@@ -1,0 +1,4 @@
+download  new {group} recipes
+download  new {group} recipe
+download  {group} recipe
+download  {group} recipes

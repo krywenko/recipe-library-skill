@@ -1,0 +1,3 @@
+find world recipe {titleworld}
+get world recipe  {titleworld}
+world recipe  {titleworld}
