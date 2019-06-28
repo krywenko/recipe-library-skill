@@ -24,7 +24,7 @@ here is a recipe libary skill for mycroft-   it reads locally stored recipes scr
  but to get acces to those use:
  list my favorite recipes to list them
  favorite recipe  standing roast beef
- or  ramon favorite recipe
+ or  random favorite recipe
  
  you need to install lynx  for recipe scraper to work
  
