@@ -24,9 +24,7 @@ if [[ $NO_WHITESPACE1 == $NO_WHITESPACE ]]
    then
          echo "exist already "
      else
-sed -i "/^        self.Chicken_
-
-play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
+sed -i "/^        self.chicken_play_list = {/a\            $LINE" $HOME/mycroft-core/skills/recipe-library-skill/__init__.py
 echo $TITLE >> $HOME/mycroft-core/skills/recipe-library-skill/vocab/en-us/titlechicken.entity
 
 
