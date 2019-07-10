@@ -1,0 +1,1 @@
+curl --url 'smtps://smtp.gmail.com:465' --ssl-reqd \ --mail-from 'your email address' --mail-rcpt 'recipiant email address' \--upload-file $1 --user 'your email address:password'
