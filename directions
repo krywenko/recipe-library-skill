@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat $1 |  sed -n '/^Directions/, $ p' | sed  '1d' | sed 's/\. /\n/g' | sed '$ a end of directions'
