@@ -1,3 +1,0 @@
-#!/bin/bash
-
-curl --url 'smtps://smtp.gmail.com:465' --ssl-reqd \ --mail-from 'User email address' --mail-rcpt 'sending too email address' \--upload-file  $1 --user 'user email address:password'
