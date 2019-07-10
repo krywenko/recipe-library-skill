@@ -29,4 +29,10 @@ here is a recipe libary skill for mycroft-   it reads locally stored recipes scr
  
  you need to install lynx  for recipe scraper to work
  
+ update-
+ you can now say  
+ read ingredients- it will read the line by line after prompt  option are yes ( next line) repeat and continue  which reads at a slow pace contiously  throuh the list
+ read directions- it will read the line by line after prompt  option are yes ( next line) repeat and continue  which reads at a slow pace contiously  throuh the each direction
+ also email recipe.  you just need to adjust emil script to match you email setting ( test for google mail) and you can send to any address. later on i probably add option email to my email address or my wife or table  computer 
  
+ currently  after download  recipe fore the first time per cat agory   you need to wait several minutes before it done  after that downloading recipes are much faster 
